@@ -1,8 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { BarChart, Package, ShoppingCart, DollarSign } from "lucide-react"
+import { BarChart, Package, ShoppingCart, DollarSign, ArrowUpRight } from "lucide-react"
 import { products } from "@/data/products"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function SellerDashboardPage() {
     const activeProducts = products.filter(p => p.status === 'Active').length;
@@ -11,7 +13,8 @@ export default function SellerDashboardPage() {
         { id: "ORD002", customer: "Olivia Smith", date: "2023-11-22", status: "Processing", total: "Rp150,000" },
         { id: "ORD003", customer: "Noah Williams", date: "2023-11-21", status: "Fulfilled", total: "Rp350,000" },
         { id: "ORD004", customer: "Emma Brown", date: "2023-11-20", status: "Cancelled", total: "Rp75,000" },
-    ].slice(0, 3); // Show only top 3 recent orders
+        { id: "ORD005", customer: "James Jones", date: "2023-11-19", status: "Fulfilled", total: "Rp500,000" },
+    ].slice(0, 5); 
 
   return (
     <div className="space-y-6">
@@ -62,11 +65,19 @@ export default function SellerDashboardPage() {
             </Card>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-6">
              <Card>
-                <CardHeader>
-                    <CardTitle>Recent Orders</CardTitle>
-                    <CardDescription>A list of your most recent orders.</CardDescription>
+                <CardHeader className="flex flex-row items-center">
+                    <div className="grid gap-2">
+                        <CardTitle>Recent Orders</CardTitle>
+                        <CardDescription>A list of your 5 most recent orders.</CardDescription>
+                    </div>
+                    <Button asChild size="sm" className="ml-auto gap-1">
+                        <Link href="/seller/orders">
+                            View All
+                            <ArrowUpRight className="h-4 w-4" />
+                        </Link>
+                    </Button>
                 </CardHeader>
                 <CardContent>
                    <Table>
@@ -95,18 +106,6 @@ export default function SellerDashboardPage() {
                             ))}
                         </TableBody>
                    </Table>
-                </CardContent>
-            </Card>
-             <Card>
-                <CardHeader>
-                    <CardTitle>Sales Overview</CardTitle>
-                     <CardDescription>A chart showing your sales over the last 7 days.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                     {/* Placeholder for sales chart */}
-                    <div className="text-center text-muted-foreground py-8">
-                       Sales chart will be displayed here.
-                    </div>
                 </CardContent>
             </Card>
         </div>

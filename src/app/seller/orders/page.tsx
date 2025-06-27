@@ -17,6 +17,9 @@ export default function SellerOrdersPage() {
     { id: "ORD002", customer: "Olivia Smith", date: "2023-11-22", status: "Processing", total: "Rp150,000" },
     { id: "ORD003", customer: "Noah Williams", date: "2023-11-21", status: "Fulfilled", total: "Rp350,000" },
     { id: "ORD004", customer: "Emma Brown", date: "2023-11-20", status: "Cancelled", total: "Rp75,000" },
+    { id: "ORD005", customer: "James Jones", date: "2023-11-19", status: "Fulfilled", total: "Rp500,000" },
+    { id: "ORD006", customer: "Sophia Garcia", date: "2023-11-18", status: "Fulfilled", total: "Rp120,000" },
+    { id: "ORD007", customer: "Benjamin Miller", date: "2023-11-17", status: "Processing", total: "Rp85,000" },
   ];
 
   return (
@@ -36,7 +39,6 @@ export default function SellerOrdersPage() {
               <TableRow>
                 <TableHead>Order</TableHead>
                 <TableHead>Customer</TableHead>
-                <TableHead>Date</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead className="text-right">Total</TableHead>
                 <TableHead>
@@ -47,9 +49,11 @@ export default function SellerOrdersPage() {
             <TableBody>
               {orders.map((order) => (
                 <TableRow key={order.id}>
-                  <TableCell className="font-medium">{order.id}</TableCell>
+                  <TableCell>
+                      <div className="font-medium">{order.id}</div>
+                      <div className="text-sm text-muted-foreground">{order.date}</div>
+                  </TableCell>
                   <TableCell>{order.customer}</TableCell>
-                  <TableCell>{order.date}</TableCell>
                   <TableCell>
                      <Badge variant={
                         order.status === 'Fulfilled' ? 'default' :
