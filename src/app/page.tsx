@@ -62,7 +62,7 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             <div className="flex flex-col items-center">
-              <div className="bg-primary/20 p-4 rounded-full mb-4">
+              <div className="bg-card p-4 rounded-full mb-4">
                 <Award className="w-10 h-10 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Premium Quality</h3>
@@ -72,7 +72,7 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col items-center">
-              <div className="bg-primary/20 p-4 rounded-full mb-4">
+              <div className="bg-card p-4 rounded-full mb-4">
                 <Leaf className="w-10 h-10 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">
@@ -84,7 +84,7 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col items-center">
-              <div className="bg-primary/20 p-4 rounded-full mb-4">
+              <div className="bg-card p-4 rounded-full mb-4">
                 <Truck className="w-10 h-10 text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">
