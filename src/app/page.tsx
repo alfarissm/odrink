@@ -47,7 +47,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/50 z-10" />
         <div className="z-20 relative max-w-3xl px-4">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight">
+          <h1 className="font-headline text-5xl md:text-6xl font-bold tracking-tight">
             Discover Your Perfect Brew
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">

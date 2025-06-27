@@ -23,7 +23,7 @@ export default function Header() {
       <div className="container flex h-16 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <CupSoda className="h-6 w-6 text-primary" />
-          <span className="font-bold">SaltyBlue Brews</span>
+          <span className="font-headline font-bold">SaltyBlue Brews</span>
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           {navLinks.map((link) => (
