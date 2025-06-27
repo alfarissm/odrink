@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import {
-  Bell,
   BarChart2,
   Package,
   LayoutDashboard,
@@ -28,7 +27,6 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
   SidebarFooter,
-  SidebarTrigger,
   SidebarInset,
 } from '@/components/ui/sidebar';
 import { usePathname } from 'next/navigation';
@@ -113,16 +111,6 @@ export default function SellerLayout({
           </SidebarFooter>
         </Sidebar>
         <SidebarInset>
-            <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-6 sticky top-0 bg-background z-30">
-                <SidebarTrigger className="md:hidden"/>
-                <div className="w-full flex-1">
-                    {/* Can add a search bar here later */}
-                </div>
-                <Button variant="ghost" size="icon" className="rounded-full">
-                    <Bell className="h-5 w-5" />
-                    <span className="sr-only">Toggle notifications</span>
-                </Button>
-            </header>
             <main className="flex-1 p-4 md:p-6">{children}</main>
         </SidebarInset>
       </div>
