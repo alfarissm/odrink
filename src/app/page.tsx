@@ -6,10 +6,29 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { products } from "@/data/products";
 import ProductCard from "@/components/product-card";
-import { Award, Leaf, Truck } from "lucide-react";
+import { Award, Leaf, Truck, Star } from "lucide-react";
+import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 
 export default function Home() {
   const featuredProducts = products.slice(0, 3);
+
+  const reviews = [
+    {
+      name: "Alex R.",
+      rating: 5,
+      review: "SaltyBlue Brews has completely transformed my morning routine. The Morning Kickstart Coffee is simply the best I've ever had!",
+    },
+    {
+      name: "Sarah L.",
+      rating: 5,
+      review: "I'm so impressed with the quality and the speed of delivery. The Zen Garden Green Tea is my new favorite.",
+    },
+    {
+      name: "Michael B.",
+      rating: 4,
+      review: "The variety is amazing, and everything I've tried is delicious. Highly recommend the Berry Blast Smoothie!",
+    },
+  ];
 
   return (
     <main>
@@ -95,6 +114,42 @@ export default function Home() {
                 our reliable and speedy shipping.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-card">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            What Our Customers Say
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {reviews.map((review, index) => (
+              <Card key={index} className="flex flex-col h-full">
+                <CardHeader>
+                  <div className="flex items-center gap-1">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star
+                        key={i}
+                        className={
+                          i < review.rating
+                            ? "w-5 h-5 text-yellow-400 fill-yellow-400"
+                            : "w-5 h-5 text-muted-foreground/50"
+                        }
+                      />
+                    ))}
+                  </div>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <p className="text-muted-foreground italic">
+                    "{review.review}"
+                  </p>
+                </CardContent>
+                <CardFooter>
+                  <p className="font-semibold">- {review.name}</p>
+                </CardFooter>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
