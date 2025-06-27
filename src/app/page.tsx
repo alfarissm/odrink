@@ -7,26 +7,33 @@ import { Button } from "@/components/ui/button";
 import { products } from "@/data/products";
 import ProductCard from "@/components/product-card";
 import { Award, Leaf, Truck, Star } from "lucide-react";
-import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 export default function Home() {
   const featuredProducts = products.slice(0, 3);
 
   const reviews = [
     {
-      name: "Alex R.",
+      name: "Budi S.",
       rating: 5,
-      review: "SaltyBlue Brews has completely transformed my morning routine. The Morning Kickstart Coffee is simply the best I've ever had!",
+      review: "SaltyBlue Brews benar-benar mengubah rutinitas pagi saya. Kopi Pagi Kickstart adalah yang terbaik yang pernah saya coba!",
+      avatarUrl: "https://placehold.co/100x100.png",
+      avatarHint: "man portrait"
     },
     {
-      name: "Sarah L.",
+      name: "Citra L.",
       rating: 5,
-      review: "I'm so impressed with the quality and the speed of delivery. The Zen Garden Green Tea is my new favorite.",
+      review: "Saya sangat terkesan dengan kualitas dan kecepatan pengirimannya. Teh Hijau Zen Garden jadi favorit baru saya.",
+      avatarUrl: "https://placehold.co/100x100.png",
+      avatarHint: "woman portrait"
     },
     {
-      name: "Michael B.",
+      name: "Agus W.",
       rating: 4,
-      review: "The variety is amazing, and everything I've tried is delicious. Highly recommend the Berry Blast Smoothie!",
+      review: "Variannya luar biasa, dan semua yang saya coba enak. Sangat merekomendasikan Smoothie Berry Blast!",
+      avatarUrl: "https://placehold.co/100x100.png",
+      avatarHint: "man portrait"
     },
   ];
 
@@ -121,13 +128,18 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
-            What Our Customers Say
+            Apa Kata Pelanggan Kami
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {reviews.map((review, index) => (
-              <Card key={index} className="flex flex-col h-full">
-                <CardHeader>
-                  <div className="flex items-center gap-1">
+              <Card key={index} className="flex flex-col h-full items-center text-center p-6">
+                <CardHeader className="p-0 flex flex-col items-center">
+                  <Avatar className="w-20 h-20 mb-4">
+                    <AvatarImage src={review.avatarUrl} alt={review.name} data-ai-hint={review.avatarHint} />
+                    <AvatarFallback>{review.name.split(" ").map(n => n[0]).join("")}</AvatarFallback>
+                  </Avatar>
+                  <p className="font-semibold text-lg">{review.name}</p>
+                   <div className="flex items-center gap-1 justify-center mt-1">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Star
                         key={i}
@@ -140,14 +152,11 @@ export default function Home() {
                     ))}
                   </div>
                 </CardHeader>
-                <CardContent className="flex-grow">
+                <CardContent className="pt-4 flex-grow">
                   <p className="text-muted-foreground italic">
                     "{review.review}"
                   </p>
                 </CardContent>
-                <CardFooter>
-                  <p className="font-semibold">- {review.name}</p>
-                </CardFooter>
               </Card>
             ))}
           </div>
