@@ -71,7 +71,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             <div className="flex flex-col items-center">
               <div className="bg-background p-4 rounded-full mb-4">
-                <Award className="w-10 h-10 text-primary" />
+                <Award className="w-10 h-10 text-primary-foreground" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Premium Quality</h3>
               <p className="text-muted-foreground">
@@ -81,7 +81,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-center">
               <div className="bg-background p-4 rounded-full mb-4">
-                <Leaf className="w-10 h-10 text-primary" />
+                <Leaf className="w-10 h-10 text-primary-foreground" />
               </div>
               <h3 className="text-xl font-semibold mb-2">
                 Sustainably Sourced
@@ -93,7 +93,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col items-center">
               <div className="bg-background p-4 rounded-full mb-4">
-                <Truck className="w-10 h-10 text-primary" />
+                <Truck className="w-10 h-10 text-primary-foreground" />
               </div>
               <h3 className="text-xl font-semibold mb-2">
                 Fast &amp; Fresh Delivery
@@ -106,7 +106,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
@@ -124,7 +124,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       <section className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
