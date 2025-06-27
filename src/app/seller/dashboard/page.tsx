@@ -1,7 +1,18 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { BarChart, Package, ShoppingCart, DollarSign } from "lucide-react"
+import { products } from "@/data/products"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
 
 export default function SellerDashboardPage() {
+    const activeProducts = products.filter(p => p.status === 'Active').length;
+    const recentOrders = [
+        { id: "ORD001", customer: "Liam Johnson", date: "2023-11-23", status: "Fulfilled", total: "Rp250,000" },
+        { id: "ORD002", customer: "Olivia Smith", date: "2023-11-22", status: "Processing", total: "Rp150,000" },
+        { id: "ORD003", customer: "Noah Williams", date: "2023-11-21", status: "Fulfilled", total: "Rp350,000" },
+        { id: "ORD004", customer: "Emma Brown", date: "2023-11-20", status: "Cancelled", total: "Rp75,000" },
+    ].slice(0, 3); // Show only top 3 recent orders
+
   return (
     <div className="space-y-6">
         <div>
@@ -45,8 +56,8 @@ export default function SellerDashboardPage() {
                     <Package className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                    <div className="text-2xl font-bold">42</div>
-                    <p className="text-xs text-muted-foreground">3 new products added</p>
+                    <div className="text-2xl font-bold">{activeProducts}</div>
+                    <p className="text-xs text-muted-foreground">{products.length} products total</p>
                 </CardContent>
             </Card>
         </div>
@@ -58,10 +69,32 @@ export default function SellerDashboardPage() {
                     <CardDescription>A list of your most recent orders.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    {/* Placeholder for recent orders table */}
-                    <div className="text-center text-muted-foreground py-8">
-                        Recent orders will be displayed here.
-                    </div>
+                   <Table>
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead>Customer</TableHead>
+                                <TableHead>Status</TableHead>
+                                <TableHead className="text-right">Total</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {recentOrders.map((order) => (
+                                <TableRow key={order.id}>
+                                    <TableCell>
+                                        <div className="font-medium">{order.customer}</div>
+                                        <div className="text-sm text-muted-foreground">{order.id}</div>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Badge variant={
+                                            order.status === 'Fulfilled' ? 'default' :
+                                            order.status === 'Processing' ? 'secondary' : 'destructive'
+                                        }>{order.status}</Badge>
+                                    </TableCell>
+                                    <TableCell className="text-right">{order.total}</TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                   </Table>
                 </CardContent>
             </Card>
              <Card>

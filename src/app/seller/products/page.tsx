@@ -2,16 +2,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { PlusCircle } from "lucide-react";
+import { MoreHorizontal, PlusCircle } from "lucide-react";
+import { products } from "@/data/products";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function SellerProductsPage() {
-  const products = [
-    { name: "Morning Kickstart Coffee", status: "Active", price: "Rp225,000", stock: 100 },
-    { name: "Zen Garden Green Tea", status: "Active", price: "Rp187,500", stock: 75 },
-    { name: "Sunshine Orange Juice", status: "Archived", price: "Rp120,000", stock: 0 },
-    { name: "Berry Blast Smoothie", status: "Active", price: "Rp157,500", stock: 50 },
-  ];
-
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
@@ -44,17 +45,29 @@ export default function SellerProductsPage() {
             </TableHeader>
             <TableBody>
               {products.map((product) => (
-                <TableRow key={product.name}>
+                <TableRow key={product.id}>
                   <TableCell className="font-medium">{product.name}</TableCell>
                   <TableCell>
                     <Badge variant={product.status === 'Active' ? 'secondary' : 'outline'}>
                       {product.status}
                     </Badge>
                   </TableCell>
-                  <TableCell>{product.price}</TableCell>
+                  <TableCell>Rp{product.price.toLocaleString('id-ID')}</TableCell>
                   <TableCell>{product.stock}</TableCell>
                   <TableCell className="text-right">
-                     {/* Actions Dropdown placeholder */}
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button variant="ghost" className="h-8 w-8 p-0">
+                                <span className="sr-only">Open menu</span>
+                                <MoreHorizontal className="h-4 w-4" />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                            <DropdownMenuItem>Edit</DropdownMenuItem>
+                            <DropdownMenuItem>Delete</DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
                   </TableCell>
                 </TableRow>
               ))}

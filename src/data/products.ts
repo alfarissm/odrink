@@ -14,6 +14,8 @@ export const products: Product[] = [
     origin: "Colombia",
     tastingNotes: ["Chocolate", "Toasted Almond", "Full-bodied"],
     brewingInstructions: "Brew at 200°F (93°C) using your favorite method. Ideal for French press or drip.",
+    stock: 100,
+    status: 'Active',
   },
   {
     id: "2",
@@ -28,6 +30,8 @@ export const products: Product[] = [
     origin: "Japan",
     tastingNotes: ["Grass", "Jasmine", "Sweet finish"],
     brewingInstructions: "Steep in 175°F (80°C) water for 2-3 minutes. Do not oversteep.",
+    stock: 75,
+    status: 'Active',
   },
   {
     id: "3",
@@ -42,6 +46,8 @@ export const products: Product[] = [
     origin: "USA (Florida)",
     tastingNotes: ["Sweet Orange", "Citrus", "Tangy"],
     brewingInstructions: "Serve chilled. Shake well before enjoying.",
+    stock: 0,
+    status: 'Archived',
   },
   {
     id: "4",
@@ -56,6 +62,8 @@ export const products: Product[] = [
     origin: "Local",
     tastingNotes: ["Strawberry", "Blueberry", "Banana"],
     brewingInstructions: "Keep refrigerated. Best consumed within 24 hours.",
+    stock: 50,
+    status: 'Active',
   },
   {
     id: "5",
@@ -70,6 +78,8 @@ export const products: Product[] = [
     origin: "Ethiopia",
     tastingNotes: ["Lemon", "Bergamot", "Floral"],
     brewingInstructions: "Best as a pour-over to highlight its delicate flavors. Use water just off the boil.",
+    stock: 80,
+    status: 'Active',
   },
   {
     id: "6",
@@ -84,6 +94,8 @@ export const products: Product[] = [
     origin: "India",
     tastingNotes: ["Cinnamon", "Cardamom", "Ginger"],
     brewingInstructions: "Mix with steamed milk of your choice. Sweeten to taste.",
+    stock: 60,
+    status: 'Active',
   },
   {
     id: "7",
@@ -98,6 +110,8 @@ export const products: Product[] = [
     origin: "Local",
     tastingNotes: ["Kale", "Green Apple", "Lemon"],
     brewingInstructions: "Shake well. Best served cold.",
+    stock: 40,
+    status: 'Active',
   },
     {
     id: "8",
@@ -112,6 +126,8 @@ export const products: Product[] = [
     origin: "Local",
     tastingNotes: ["Mango", "Pineapple", "Coconut"],
     brewingInstructions: "Keep refrigerated and enjoy the taste of paradise.",
+    stock: 30,
+    status: 'Active',
   },
   {
     id: "9",
@@ -126,5 +142,7 @@ export const products: Product[] = [
     origin: "Egypt",
     tastingNotes: ["Peppermint", "Cooling", "Crisp"],
     brewingInstructions: "Steep in boiling water for 5-7 minutes for full flavor.",
+    stock: 120,
+    status: 'Active',
   },
 ];

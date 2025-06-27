@@ -11,6 +11,8 @@ export interface Product {
   origin: string;
   tastingNotes: string[];
   brewingInstructions: string;
+  stock: number;
+  status: 'Active' | 'Archived';
 }
 
 export interface CartItem {
