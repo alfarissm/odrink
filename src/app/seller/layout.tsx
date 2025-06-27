@@ -7,6 +7,9 @@ import {
   LayoutDashboard,
   ShoppingCart,
   UserCircle,
+  LogOut,
+  User,
+  Settings,
 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -103,10 +106,21 @@ export default function SellerLayout({
                 <DropdownMenuContent className="w-56" align="end" forceMount>
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem>Profile</DropdownMenuItem>
-                    <DropdownMenuItem>Settings</DropdownMenuItem>
+                    <DropdownMenuItem>
+                        <User />
+                        <span>Profile</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem>
+                        <Settings />
+                        <span>Settings</span>
+                    </DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem>Logout</DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                        <Link href="/login">
+                            <LogOut />
+                            <span>Logout</span>
+                        </Link>
+                    </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
           </SidebarFooter>
