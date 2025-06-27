@@ -111,7 +111,7 @@ export default function SellerLayout({
           </SidebarFooter>
         </Sidebar>
         <SidebarInset>
-            <main className="flex-1 p-4 md:p-6">{children}</main>
+            <div className="w-full max-w-screen-xl mx-auto p-4 md:p-6">{children}</div>
         </SidebarInset>
       </div>
     </SidebarProvider>
