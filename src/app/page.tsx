@@ -66,62 +66,6 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Apa Kata Pelanggan Kami
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {reviews.map((review, index) => (
-              <Card key={index} className="flex flex-col h-full items-center text-center p-6">
-                <CardHeader className="p-0 flex flex-col items-center">
-                  <Avatar className="w-20 h-20 mb-4">
-                    <AvatarImage src={review.avatarUrl} alt={review.name} data-ai-hint={review.avatarHint} />
-                    <AvatarFallback>{review.name.split(" ").map(n => n[0]).join("")}</AvatarFallback>
-                  </Avatar>
-                  <p className="font-semibold text-lg">{review.name}</p>
-                   <div className="flex items-center gap-1 justify-center mt-1">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className={
-                          i < review.rating
-                            ? "w-5 h-5 text-yellow-400 fill-yellow-400"
-                            : "w-5 h-5 text-muted-foreground/50"
-                        }
-                      />
-                    ))}
-                  </div>
-                </CardHeader>
-                <CardContent className="pt-4 flex-grow">
-                  <p className="text-muted-foreground italic">
-                    "{review.review}"
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Featured Brews
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Button asChild size="lg">
-              <Link href="/products">View All Products</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24 bg-card">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
             Why Choose SaltyBlue?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
@@ -162,6 +106,63 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Featured Brews
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Button asChild size="lg">
+              <Link href="/products">View All Products</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+      
+      <section className="py-16 md:py-24 bg-card">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Apa Kata Pelanggan Kami
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {reviews.map((review, index) => (
+              <Card key={index} className="flex flex-col h-full items-center text-center p-6">
+                <CardHeader className="p-0 flex flex-col items-center">
+                  <Avatar className="w-20 h-20 mb-4">
+                    <AvatarImage src={review.avatarUrl} alt={review.name} data-ai-hint={review.avatarHint} />
+                    <AvatarFallback>{review.name.split(" ").map(n => n[0]).join("")}</AvatarFallback>
+                  </Avatar>
+                  <p className="font-semibold text-lg">{review.name}</p>
+                   <div className="flex items-center gap-1 justify-center mt-1">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star
+                        key={i}
+                        className={
+                          i < review.rating
+                            ? "w-5 h-5 text-yellow-400 fill-yellow-400"
+                            : "w-5 h-5 text-muted-foreground/50"
+                        }
+                      />
+                    ))}
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-4 flex-grow">
+                  <p className="text-muted-foreground italic">
+                    "{review.review}"
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }
