@@ -10,8 +10,8 @@ export default function LoginPage() {
     <div className="flex items-center justify-center min-h-[calc(100vh-12rem)]">
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle className="text-2xl">Welcome Back</CardTitle>
-          <CardDescription>Enter your email below to login to your account.</CardDescription>
+          <CardTitle className="text-2xl">Seller Login</CardTitle>
+          <CardDescription>Enter your credentials to access the seller dashboard.</CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid gap-2">
@@ -32,7 +32,7 @@ export default function LoginPage() {
         <CardFooter className="flex flex-col gap-4">
           <Button className="w-full">Sign In</Button>
           <div className="text-center text-sm">
-            Don&apos;t have an account?{" "}
+            Don&apos;t have a seller account?{" "}
             <Link href="/signup" className="underline">
               Sign up
             </Link>

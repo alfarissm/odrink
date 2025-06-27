@@ -14,7 +14,7 @@ import {
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
-  { href: "/account", label: "Account" },
+  { href: "/login", label: "Seller Login" },
 ];
 
 export default function Header() {
@@ -57,9 +57,6 @@ export default function Header() {
                       </Link>
                     </SheetClose>
                   ))}
-                   <SheetClose asChild>
-                     <Link href="/login" className="transition-colors hover:text-primary">Login</Link>
-                    </SheetClose>
                 </nav>
               </SheetContent>
             </Sheet>
