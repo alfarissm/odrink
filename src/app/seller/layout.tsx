@@ -28,6 +28,7 @@ import {
   SidebarMenuButton,
   SidebarFooter,
   SidebarInset,
+  SidebarTrigger,
 } from '@/components/ui/sidebar';
 import { usePathname } from 'next/navigation';
 
@@ -41,7 +42,7 @@ export default function SellerLayout({
 
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen">
+      <div className="flex min-h-screen w-full">
         <Sidebar>
           <SidebarHeader>
             <Link href="/" className="flex items-center gap-2">
@@ -111,7 +112,10 @@ export default function SellerLayout({
           </SidebarFooter>
         </Sidebar>
         <SidebarInset>
-            <div className="w-full max-w-screen-xl mx-auto p-4 md:p-6">{children}</div>
+            <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 md:hidden">
+              <SidebarTrigger />
+            </header>
+            <div className="w-full flex-1 p-4 md:p-6">{children}</div>
         </SidebarInset>
       </div>
     </SidebarProvider>
