@@ -59,7 +59,7 @@ export default function CartSheet() {
                     <div className="flex-grow space-y-1">
                       <p className="font-medium">{item.product.name}</p>
                       <p className="text-sm text-muted-foreground">
-                        ${item.product.price.toFixed(2)}
+                        Rp{item.product.price.toLocaleString('id-ID')}
                       </p>
                       <div className="flex items-center justify-between pt-1">
                         <div className="flex items-center">
@@ -105,7 +105,7 @@ export default function CartSheet() {
               <div className="w-full space-y-4">
                  <div className="flex justify-between font-semibold text-lg">
                     <span>Subtotal</span>
-                    <span>${cartTotal.toFixed(2)}</span>
+                    <span>Rp{cartTotal.toLocaleString('id-ID')}</span>
                 </div>
                 <SheetClose asChild>
                     <Button asChild size="lg" className="w-full">

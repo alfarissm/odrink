@@ -7,9 +7,9 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 
 export default function AccountPage() {
   const orders = [
-    { id: "ORD001", date: "2023-10-26", total: 45.00, status: "Delivered" },
-    { id: "ORD002", date: "2023-10-28", total: 22.50, status: "Shipped" },
-    { id: "ORD003", date: "2023-11-01", total: 12.00, status: "Processing" },
+    { id: "ORD001", date: "2023-10-26", total: 675000, status: "Delivered" },
+    { id: "ORD002", date: "2023-10-28", total: 337500, status: "Shipped" },
+    { id: "ORD003", date: "2023-11-01", total: 180000, status: "Processing" },
   ]
 
   return (
@@ -63,7 +63,7 @@ export default function AccountPage() {
                       <TableCell className="font-medium">{order.id}</TableCell>
                       <TableCell>{order.date}</TableCell>
                       <TableCell>{order.status}</TableCell>
-                      <TableCell className="text-right">${order.total.toFixed(2)}</TableCell>
+                      <TableCell className="text-right">Rp{order.total.toLocaleString('id-ID')}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

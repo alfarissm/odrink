@@ -8,11 +8,11 @@ import Image from "next/image"
 export default function CheckoutPage() {
   // In a real app, this would come from the cart context
   const cartItems = [
-    { id: '1', name: 'Morning Kickstart', price: 15.00, quantity: 1, imageUrl: 'https://placehold.co/100x100.png' },
-    { id: '2', name: 'Zen Garden Green Tea', price: 12.50, quantity: 2, imageUrl: 'https://placehold.co/100x100.png' },
+    { id: '1', name: 'Morning Kickstart', price: 225000, quantity: 1, imageUrl: 'https://placehold.co/100x100.png' },
+    { id: '2', name: 'Zen Garden Green Tea', price: 187500, quantity: 2, imageUrl: 'https://placehold.co/100x100.png' },
   ]
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
-  const shipping = 5.00
+  const shipping = 75000
   const total = subtotal + shipping
 
   return (
@@ -93,22 +93,22 @@ export default function CheckoutPage() {
                       <p className="text-sm text-muted-foreground">Qty: {item.quantity}</p>
                     </div>
                   </div>
-                  <p>${(item.price * item.quantity).toFixed(2)}</p>
+                  <p>Rp{(item.price * item.quantity).toLocaleString('id-ID')}</p>
                 </div>
               ))}
               <Separator />
               <div className="flex justify-between">
                 <p>Subtotal</p>
-                <p>${subtotal.toFixed(2)}</p>
+                <p>Rp{subtotal.toLocaleString('id-ID')}</p>
               </div>
               <div className="flex justify-between">
                 <p>Shipping</p>
-                <p>${shipping.toFixed(2)}</p>
+                <p>Rp{shipping.toLocaleString('id-ID')}</p>
               </div>
               <Separator />
               <div className="flex justify-between font-bold text-lg">
                 <p>Total</p>
-                <p>${total.toFixed(2)}</p>
+                <p>Rp{total.toLocaleString('id-ID')}</p>
               </div>
             </CardContent>
           </Card>

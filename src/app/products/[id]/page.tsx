@@ -37,7 +37,7 @@ export default function ProductDetailPage({
                 <Badge variant="outline">{product.flavorProfile}</Badge>
             </div>
             <h1 className="text-4xl font-bold tracking-tight">{product.name}</h1>
-            <p className="text-3xl font-light mt-2 text-primary">${product.price.toFixed(2)}</p>
+            <p className="text-3xl font-light mt-2 text-primary">Rp{product.price.toLocaleString('id-ID')}</p>
           </div>
 
           <p className="text-lg text-muted-foreground">{product.description}</p>
