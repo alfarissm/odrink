@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { User, ListOrdered, Mail } from "lucide-react"
 
 export default function AccountPage() {
   const orders = [
@@ -17,8 +18,14 @@ export default function AccountPage() {
       <h1 className="text-3xl font-bold mb-6">My Account</h1>
       <Tabs defaultValue="profile" className="w-full">
         <TabsList className="grid w-full grid-cols-2 max-w-md">
-          <TabsTrigger value="profile">Profile</TabsTrigger>
-          <TabsTrigger value="orders">Order History</TabsTrigger>
+          <TabsTrigger value="profile">
+            <User className="mr-2 h-4 w-4" />
+            Profile
+          </TabsTrigger>
+          <TabsTrigger value="orders">
+            <ListOrdered className="mr-2 h-4 w-4" />
+            Order History
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="profile">
           <Card>
@@ -29,11 +36,17 @@ export default function AccountPage() {
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
-                <Input id="name" defaultValue="John Doe" />
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input id="name" defaultValue="John Doe" className="pl-10" />
+                </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" defaultValue="john.doe@example.com" />
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input id="email" type="email" defaultValue="john.doe@example.com" className="pl-10" />
+                </div>
               </div>
             </CardContent>
             <CardFooter>
