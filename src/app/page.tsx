@@ -1,9 +1,12 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { products as allProducts } from "@/data/products";
 import ProductCard from "@/components/product-card";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
@@ -32,8 +35,32 @@ export default function Home() {
   }, [sortOrder]);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <main>
+    <main>
+      <section className="relative h-[60vh] flex items-center justify-center text-center text-white bg-background">
+        <Image
+          src="https://placehold.co/1200x600.png"
+          alt="A collection of various beverages"
+          fill
+          className="absolute inset-0 z-0 object-cover"
+          data-ai-hint="coffee beans beverage"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="z-20 relative max-w-3xl px-4">
+          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight">
+            Discover Your Perfect Brew
+          </h1>
+          <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">
+            From robust coffees to delicate teas and refreshing juices, explore
+            our curated selection of fine beverages crafted with passion.
+          </p>
+          <Button asChild size="lg" className="mt-8">
+            <Link href="/#products">Explore Our Collection</Link>
+          </Button>
+        </div>
+      </section>
+
+      <div className="container mx-auto px-4 py-12">
         <section id="products" className="scroll-mt-20">
           <div className="flex justify-between items-center mb-6">
             <h1 className="text-3xl font-bold">Our Brews</h1>
@@ -66,7 +93,7 @@ export default function Home() {
             </div>
           )}
         </section>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
