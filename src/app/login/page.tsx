@@ -51,8 +51,8 @@ export default function LoginPage() {
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-4">
-            <Button className="w-full" size="lg">
-              Sign In
+            <Button className="w-full" size="lg" asChild>
+              <Link href="/seller/dashboard">Sign In</Link>
             </Button>
             <div className="mt-4 text-center text-sm">
               Don&apos;t have a seller account?{" "}
