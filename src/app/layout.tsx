@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { CartProvider } from "@/contexts/cart-context";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import ConditionalLayout from "@/components/conditional-layout";
 
 export const metadata: Metadata = {
   title: "SaltyBlue Brews",
@@ -27,11 +26,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         <CartProvider>
-          <div className="min-h-screen flex flex-col">
-            <Header />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
+          <ConditionalLayout>{children}</ConditionalLayout>
           <Toaster />
         </CartProvider>
       </body>
