@@ -1,19 +1,47 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Separator } from "@/components/ui/separator"
-import Image from "next/image"
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
+import Link from "next/link";
+import { useCart } from "@/hooks/use-cart";
+import { useToast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
+import { ShoppingCart } from "lucide-react";
 
 export default function CheckoutPage() {
-  // In a real app, this would come from the cart context
-  const cartItems = [
-    { id: '1', name: 'Morning Kickstart', price: 225000, quantity: 1, imageUrl: 'https://placehold.co/100x100.png' },
-    { id: '2', name: 'Zen Garden Green Tea', price: 187500, quantity: 2, imageUrl: 'https://placehold.co/100x100.png' },
-  ]
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
-  const shipping = 75000
-  const total = subtotal + shipping
+  const { cartItems, cartTotal, clearCart } = useCart();
+  const { toast } = useToast();
+  const router = useRouter();
+
+  const shipping = cartTotal > 0 ? 75000 : 0;
+  const total = cartTotal + shipping;
+
+  const handlePlaceOrder = () => {
+    // In a real app, you would process the payment here.
+    toast({
+      title: "Order Placed!",
+      description: "Thank you for your purchase.",
+    });
+    clearCart();
+    router.push("/order-confirmation");
+  };
+
+  if (cartItems.length === 0) {
+    return (
+      <div className="container mx-auto px-4 py-8 text-center min-h-[calc(100vh-12rem)] flex flex-col justify-center items-center">
+        <ShoppingCart className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
+        <h1 className="text-3xl font-bold mb-4">Your Cart is Empty</h1>
+        <p className="text-muted-foreground mb-6">Looks like you haven't added anything to your cart yet.</p>
+        <Button asChild>
+          <Link href="/products">Continue Shopping</Link>
+        </Button>
+      </div>
+    )
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -85,21 +113,21 @@ export default function CheckoutPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               {cartItems.map(item => (
-                <div key={item.id} className="flex items-center justify-between">
+                <div key={item.product.id} className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    <Image src={item.imageUrl} alt={item.name} width={64} height={64} className="rounded-md" data-ai-hint="beverage drink" />
+                    <Image src={item.product.imageUrl} alt={item.product.name} width={64} height={64} className="rounded-md" data-ai-hint={item.product.imageHint} />
                     <div>
-                      <p className="font-medium">{item.name}</p>
+                      <p className="font-medium">{item.product.name}</p>
                       <p className="text-sm text-muted-foreground">Qty: {item.quantity}</p>
                     </div>
                   </div>
-                  <p>Rp{(item.price * item.quantity).toLocaleString('id-ID')}</p>
+                  <p>Rp{(item.product.price * item.quantity).toLocaleString('id-ID')}</p>
                 </div>
               ))}
               <Separator />
               <div className="flex justify-between">
                 <p>Subtotal</p>
-                <p>Rp{subtotal.toLocaleString('id-ID')}</p>
+                <p>Rp{cartTotal.toLocaleString('id-ID')}</p>
               </div>
               <div className="flex justify-between">
                 <p>Shipping</p>
@@ -112,7 +140,7 @@ export default function CheckoutPage() {
               </div>
             </CardContent>
           </Card>
-          <Button className="w-full mt-6 text-lg" size="lg">
+          <Button className="w-full mt-6 text-lg" size="lg" onClick={handlePlaceOrder}>
             Place Order
           </Button>
         </div>
