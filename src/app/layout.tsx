@@ -5,7 +5,7 @@ import { CartProvider } from "@/contexts/cart-context";
 import ConditionalLayout from "@/components/conditional-layout";
 
 export const metadata: Metadata = {
-  title: "SaltyBlue Brews",
+  title: "ODrink",
   description: "A curated selection of fine beverages.",
 };
 

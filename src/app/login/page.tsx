@@ -14,7 +14,7 @@ export default function LoginPage() {
             <div className="inline-block mx-auto mb-4">
               <Link href="/" className="inline-flex items-center gap-2">
                 <CupSoda className="h-10 w-10 text-primary" />
-                <span className="font-headline text-3xl font-bold">SaltyBlue Brews</span>
+                <span className="font-headline text-3xl font-bold">ODrink</span>
               </Link>
             </div>
             <CardTitle className="text-2xl">Seller Portal Login</CardTitle>

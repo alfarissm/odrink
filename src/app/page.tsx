@@ -17,7 +17,7 @@ export default function Home() {
     {
       name: "Budi S.",
       rating: 5,
-      review: "SaltyBlue Brews benar-benar mengubah rutinitas pagi saya. Kopi Pagi Kickstart adalah yang terbaik yang pernah saya coba!",
+      review: "ODrink benar-benar mengubah rutinitas pagi saya. Kopi Pagi Kickstart adalah yang terbaik yang pernah saya coba!",
       avatarUrl: "https://placehold.co/100x100.png",
       avatarHint: "man portrait"
     },
@@ -66,7 +66,7 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-card">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
-            Why Choose SaltyBlue?
+            Why Choose ODrink?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             <div className="flex flex-col items-center">

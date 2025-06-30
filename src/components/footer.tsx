@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="inline-flex items-center space-x-2 mb-4">
               <CupSoda className="h-8 w-8 text-primary" />
-              <span className="font-headline text-xl font-bold text-foreground">SaltyBlue Brews</span>
+              <span className="font-headline text-xl font-bold text-foreground">ODrink</span>
             </Link>
             <p className="text-sm">A curated selection of fine beverages.</p>
           </div>
@@ -31,7 +31,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-border mt-8 pt-6 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} SaltyBlue Brews. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} ODrink. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
